@@ -1,7 +1,7 @@
 class SubtasksController < ApplicationController
   before_action :set_subtask, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:show,:create,:index]
-  before_action :set_task, only: [:show,:create,:index]
+  before_action :set_project, only: [:show,:create]
+  before_action :set_task, only: [:show,:create]
   skip_before_filter :verify_authenticity_token
   # GET /subtasks
   # GET /subtasks.json
@@ -40,15 +40,11 @@ class SubtasksController < ApplicationController
   # PATCH/PUT /subtasks/1
   # PATCH/PUT /subtasks/1.json
   def update
-    respond_to do |format|
       if @subtask.update(subtask_params)
-        format.html { redirect_to @subtask, notice: 'Subtask was successfully updated.' }
-        format.json { render :show, status: :ok, location: @subtask }
+        render json: {status: :success, subtask: @subtask}
       else
-        format.html { render :edit }
-        format.json { render json: @subtask.errors, status: :unprocessable_entity }
+        render json: {status: :failsed, subtask: @subtask}
       end
-    end
   end
 
   # DELETE /subtasks/1

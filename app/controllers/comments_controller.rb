@@ -38,15 +38,11 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-    respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
+        render json: {status: :success, comment: @comment}
       else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        render json: {status: :failed, comment: comment}
       end
-    end
   end
 
   # DELETE /comments/1
@@ -69,4 +65,4 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:user_id, :subtask_id, :content)
     end
-end
+

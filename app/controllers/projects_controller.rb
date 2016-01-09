@@ -1,13 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token
-  before_action :set_user, only: [:show, :edit,:create, :update, :destroy]
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all
     render json: @projects
-
   end
 
   # GET /projects/1
@@ -41,15 +39,11 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
+        render json: {status: :success, project: @project}
       else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        render json: {status: :failed, project: @project}
       end
-    end
   end
 
   # DELETE /projects/1
@@ -74,5 +68,5 @@ class ProjectsController < ApplicationController
     end
     def set_user
       @user = User.find(params[:user_id])
-    end
+    end 
 end

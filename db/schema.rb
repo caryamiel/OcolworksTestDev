@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107035452) do
+ActiveRecord::Schema.define(version: 20160109045258) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -28,14 +28,23 @@ ActiveRecord::Schema.define(version: 20160107035452) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "projectmemberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "projectmembership_id"
+    t.integer  "project_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "descriptions"
     t.date     "startDate"
     t.date     "dueDate"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "user_id"
+    t.boolean  "project_confirmation"
   end
 
   create_table "subtasks", force: :cascade do |t|
@@ -43,6 +52,14 @@ ActiveRecord::Schema.define(version: 20160107035452) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "task_id"
+  end
+
+  create_table "taskmemberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "taskmembership_id"
+    t.integer  "task_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "tasks", force: :cascade do |t|

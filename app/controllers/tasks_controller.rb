@@ -41,15 +41,11 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
-    respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+       render json: {status: :success, task: @task}
       else
-        ftask.project_id = @project.idormat.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        render json: {status: :failed, task: @task}
       end
-    end
   end
 
   # DELETE /tasks/1

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :taskmemberships
+  resources :projectmemberships
 resources :sessions, only: [:new, :create, :destroy]
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -14,5 +16,18 @@ resources :sessions, only: [:new, :create, :destroy]
         
   get 'page/index'
   root 'page#index'
+
+
+  resources :users do
+    resources :friendships
+    resources :projects do
+      resources :tasks do
+        resources :subtasks do
+          resources :comments
+        end
+      end
+    end
+  end
+
 
 end
