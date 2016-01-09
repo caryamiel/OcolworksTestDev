@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :taskmemberships
   resources :projectmemberships
 resources :sessions, only: [:new, :create, :destroy]
@@ -15,7 +16,7 @@ resources :sessions, only: [:new, :create, :destroy]
   resources :comments
         
   get 'page/index'
-  root 'page#index'
+  root 'rails_admin/main#dashboard'
 
 
   resources :users do
