@@ -1,6 +1,6 @@
 class SubtasksController < ApplicationController
   before_action :set_subtask, only: [:show, :edit, :update, :destroy]
-  before_action :set_task, only: [:show,:create]
+  before_action :set_task, only: [:create]
   skip_before_filter :verify_authenticity_token
   # GET /subtasks
   # GET /subtasks.json
