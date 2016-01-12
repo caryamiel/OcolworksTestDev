@@ -1,6 +1,5 @@
 class SubtasksController < ApplicationController
   before_action :set_subtask, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:show,:create]
   before_action :set_task, only: [:show,:create]
   skip_before_filter :verify_authenticity_token
   # GET /subtasks
@@ -13,7 +12,7 @@ class SubtasksController < ApplicationController
   # GET /subtasks/1
   # GET /subtasks/1.json
   def show
-    render json: @subtask
+     @subtask = Subtask.find(params[:id])
   end
 
   # GET /subtasks/new

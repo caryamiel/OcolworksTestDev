@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:create]
   skip_before_filter :verify_authenticity_token
+
   # GET /projects
   # GET /projects.json
   def index
@@ -11,9 +13,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    render json: @project
+    @project = Project.find(params[:id])
   end
-
   # GET /projects/new
   def new
     @project = Project.new
@@ -32,8 +33,7 @@ class ProjectsController < ApplicationController
         render json: {status: :success, project: @project}
       else
         render json: {status: :failed, project: @project}
-  end
-  
+      end
   end
 
   # PATCH/PUT /projects/1
@@ -65,8 +65,9 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :descriptions, :startDate, :dueDate)
-    end
-    def set_user
+    end  
+     def set_user
       @user = User.find(params[:user_id])
-    end 
+    end
 end
+
