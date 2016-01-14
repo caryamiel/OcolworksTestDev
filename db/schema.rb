@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114082311) do
+ActiveRecord::Schema.define(version: 20160114120209) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 20160114082311) do
     t.text     "descriptions"
     t.date     "startDate"
     t.date     "dueDate"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "user_id"
-    t.boolean  "project_confirmation"
+    t.string   "project_confirm"
   end
 
   create_table "subtasks", force: :cascade do |t|
