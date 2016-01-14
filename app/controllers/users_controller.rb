@@ -13,7 +13,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])  
   end  
-
+  def getFriends
+    @user = User.find(params[:id])
+  end
   # GET /users/new
   def new
     @user = User.new

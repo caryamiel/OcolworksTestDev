@@ -13,6 +13,7 @@ class SubtasksController < ApplicationController
   # GET /subtasks/1.json
   def show
      @subtask = Subtask.find(params[:id])
+     render json: @subtask
   end
 
   # GET /subtasks/new
@@ -64,7 +65,7 @@ class SubtasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subtask_params
-      params.require(:subtask).permit(:name)
+      params.require(:subtask).permit(:name, :subtask_confirmation)
     end
     def set_project
       @project = Project.find(params[:project_id])

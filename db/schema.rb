@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109045258) do
+ActiveRecord::Schema.define(version: 20160114082311) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20160109045258) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "deadlines", force: :cascade do |t|
+    t.date     "dueDate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -49,9 +57,10 @@ ActiveRecord::Schema.define(version: 20160109045258) do
 
   create_table "subtasks", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "task_id"
+    t.string   "subtask_confirmation"
   end
 
   create_table "taskmemberships", force: :cascade do |t|

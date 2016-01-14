@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user, only: [:create]
   # GET /friendships
   # GET /friendships.json
   def index
@@ -27,6 +27,8 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = Friendship.new(friendship_params)
+    @friendship.user_id = @user.id
+  
       if @friendship.save
         render json: {status: :success, friendship: @friendship}
       else
@@ -67,5 +69,8 @@ class FriendshipsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def friendship_params
       params.require(:friendship).permit(:user_id, :friend_id)
+    end
+    def set_user
+      @user = User.find(params[:user_id])
     end
 end
