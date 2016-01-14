@@ -3,6 +3,6 @@ class Project < ActiveRecord::Base
 	belongs_to :user
 
 
-  	has_many :projectmemberships, dependent: :destroy
-	has_many :members, through: :projectmemberships, source: :user
+  #	has_many :projectmemberships, dependent: :destroy
+#	has_many :members, through: :projectmemberships, source: :user
 end

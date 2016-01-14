@@ -22,6 +22,8 @@ has_secure_password
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id", dependent: :destroy
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user, dependent: :destroy
 
-  has_many :projectmemberships , :dependent :destroy
-  has_many :joinedproject, through: :projectmemberships, source: :user
+ 
+ #has_many :projectmemberships , :dependent :destroy
+  #has_many :joinedproject, through: :projectmemberships, source: :user
+
 end
