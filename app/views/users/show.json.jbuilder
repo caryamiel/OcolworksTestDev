@@ -6,3 +6,4 @@ json.friendships @user.friendships,:user_id, :friend_id
 
 json.inverse_friendships @user.inverse_friendships, :user_id, :friend_id
 
+

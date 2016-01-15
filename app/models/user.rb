@@ -23,7 +23,7 @@ has_secure_password
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user, dependent: :destroy
 
  
- #has_many :projectmemberships , :dependent :destroy
-  #has_many :joinedproject, through: :projectmemberships, source: :user
+  #has_many :projectmemberships , :dependent :destroy
+  #as_many :joinedproject, through: :projectmemberships, source: :user
 
 end
