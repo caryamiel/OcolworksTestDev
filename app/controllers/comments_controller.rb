@@ -65,4 +65,9 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:user_id, :subtask_id, :content)
     end
-
+    def set_user
+      @user = User.find(params[:user_id])
+    end
+    def set_subtask
+      @subtask = Subtask.find(params[:subtask_id])
+    end

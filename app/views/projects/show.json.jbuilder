@@ -2,21 +2,14 @@ json.extract! @project, :id, :name,:descriptions ,:project_confirm, :dueDate, :s
 
 
 
-json.tasks @project.tasks, :id, :name, :descriptions, :updated_at,:dueDate, :startDate 
+json.tasks @project.tasks do |task|
+  json.(task, :id, :name)
 
+  json.subtasks task.subtasks do |subtask|
+    json.(subtask, :id, :name)
 
-json.subtasks @project.subtasks, :id, :name, :task_id
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  	json.comments subtask.comments do |comment|
+  		json.(comment, :id, :content)  
+    end
+  end
+end
