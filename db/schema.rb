@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114120209) do
+ActiveRecord::Schema.define(version: 20160116073835) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20160114120209) do
 
   create_table "projectmemberships", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "projectmembership_id"
-    t.integer  "project_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "pmember_id"
+    t.integer  "project_joined"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160114120209) do
     t.string   "phonenumber"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "user_avatar"
   end
 
 end
