@@ -32,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rack-cors', '~> 0.4.0'
 gem 'rails_admin', '~> 0.8.1'
-
+gem 'twilio-ruby', '~> 4.9'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

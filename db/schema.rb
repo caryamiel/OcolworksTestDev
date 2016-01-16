@@ -87,11 +87,9 @@ ActiveRecord::Schema.define(version: 20160116125422) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "phonenumber"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "user_avatar"
-    t.boolean  "email_confirmed", default: false
-    t.string   "confirm_token"
   end
 
 end

@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
   
+  get 'text_details/new'
+
+  get 'text_details/create'
+
+  get 'text_details/edit'
+
+  get 'text_details/destroy'
+
+  get 'text_details/show'
+
+  get 'text_details/index'
+
+  get 'text_details/post'
+
+  get 'text_details/create'
+
   resources :deadlines
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :taskmemberships
