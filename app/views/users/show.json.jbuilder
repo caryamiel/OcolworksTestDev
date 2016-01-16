@@ -5,9 +5,9 @@ json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :
 
 
 	json.friends @user.friends do |friend|
-  		json.(friend, :name)  
+  		json.(friend, :name, :email)  
     end
 
     json.inverse_friends @user.inverse_friends do |inverse_friend|
-  		json.(inverse_friend, :name)  
+  		json.(inverse_friend, :name,:email)  
     end
