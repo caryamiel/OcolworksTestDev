@@ -8,7 +8,7 @@ skip_before_filter :verify_authenticity_token
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      render json: {status: :success , user: user}
+      render json: {status: :success , user: user}     
     else
       render json: {status: "email not found or mismatch!"}
     end

@@ -17,7 +17,7 @@ class TasksController < ApplicationController
 
   end
 
-  # GET /tasks/new
+  # GET /tasks/newgit 
   def new
     @task = Task.new
   end
