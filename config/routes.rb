@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
-  post '/send_sms' => 'twilio#send_sms'
+  post 'getsubtask/create' 
 
+  post '/send_sms' => 'twilio#send_sms'
   resources :deadlines
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :taskmemberships

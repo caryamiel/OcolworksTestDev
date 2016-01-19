@@ -14,7 +14,7 @@ class TwilioController < ApplicationController
     @twilio_client.account.sms.messages.create(
       :from => "+63#{number}",
       :to => number_to_send_to,
-      :body => "This is an message. It gets sent to #{number_to_send_to}"
+      :body => "This is an message. It gets sent to #{number}"
     )
   end
 

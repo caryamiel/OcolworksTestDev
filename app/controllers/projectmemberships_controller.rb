@@ -10,6 +10,7 @@ class ProjectmembershipsController < ApplicationController
   # GET /projectmemberships/1
   # GET /projectmemberships/1.json
   def show
+    @projectmembership = Projectmembership.find(params[:id])
   end
 
   # GET /projectmemberships/new
@@ -25,7 +26,7 @@ class ProjectmembershipsController < ApplicationController
   # POST /projectmemberships.json
   def create
     @projectmembership = Projectmembership.new(projectmembership_params)
-
+    
     respond_to do |format|
       if @projectmembership.save
         format.html { redirect_to @projectmembership, notice: 'Projectmembership was successfully created.' }
@@ -69,6 +70,6 @@ class ProjectmembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projectmembership_params
-      params.require(:projectmembership).permit(:user_id, :projectmembership_id, :project_id)
+      params.require(:projectmembership).permit(:user_id, :projectmembership_id, :project_id, :pmember)
     end
 end

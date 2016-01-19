@@ -1,1 +1,2 @@
-json.extract! @projectmembership, :id, :user_id, :projectmembership_id, :project_id, :created_at, :updated_at
+json.extract! @projectmembership,  :user_id, :pmember_id, :project_id,
+:projectmembered_id, :created_at, :updated_at

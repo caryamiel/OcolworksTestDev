@@ -24,5 +24,5 @@ has_secure_password
 
  
   has_many :projectmemberships, dependent: :destroy
-  has_many :projects, :through => :projectmemberships
+  has_many :projectms, :through => :projectmemberships
 end
