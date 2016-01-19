@@ -92,6 +92,7 @@ Rails.application.configure do
       user_name: "Ocolworks@gmail.com",
       password: "fuckingawesome",
       :openssl_verify_mode  => 'none'
+      :domain               => 'heroku.com'
     }
 
     config.action_mailer.perform_deliveries = true
