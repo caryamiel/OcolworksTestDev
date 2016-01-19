@@ -89,8 +89,8 @@ Rails.application.configure do
       port: 587,
       authentication: "login",
       enable_starttls_auto: true,
-      user_name: "amielasparen@gmail.com",
-      password: "amiel527",
+      user_name: "Ocolworks@gmail.com",
+      password: "fuckingawesome",
       :openssl_verify_mode  => 'none'
     }
 
