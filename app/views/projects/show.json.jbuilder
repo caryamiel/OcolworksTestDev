@@ -1,6 +1,6 @@
 json.extract! @project, :id, :name,:descriptions ,:project_confirm, :dueDate, :startDate
 
-
+json.pmembers @project.pmembers, :id,:name
 
 json.tasks @project.tasks do |task|
   json.(task, :id, :name, :descriptions, :startDate, :dueDate)

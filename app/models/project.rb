@@ -5,5 +5,5 @@ class Project < ActiveRecord::Base
 
 
   	has_many :projectmemberships, dependent: :destroy
-	has_many :pmembers, through: :projectmemberships, source: :user
+	has_many :pmembers, :through => :projectmemberships
 end
