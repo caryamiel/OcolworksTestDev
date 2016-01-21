@@ -10,3 +10,6 @@ json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :
     json.inverse_friends @user.inverse_friends do |inverse_friend|
   		json.(inverse_friend, :name,:email)  
     end
+
+    json.membered_projects @user.membered_projects, :id, :name
+ 
