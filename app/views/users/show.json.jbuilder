@@ -11,5 +11,5 @@ json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :
   		json.(inverse_friend, :name,:email)  
     end
 
-    json.membered_projects @user.membered_projects, :id, :name
+    json.joined_projects @user.joined_projects, :id, :name
  

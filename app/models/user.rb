@@ -24,6 +24,6 @@ has_secure_password
 
  
   has_many :projectmemberships
-  has_many :membered_projectmemberships, :class_name => "Projectmembership", :foreign_key => "project_id"
-  has_many :membered_projects, :through => :membered_projectmemberships, :source => :project
+  has_many :joined_projectmemberships, :class_name => "Projectmembership", :foreign_key => "project_id"
+  has_many :joined_projects, :through => :joined_projectmemberships, :source => :project
 end
