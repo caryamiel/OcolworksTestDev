@@ -5,6 +5,10 @@ json.pmembers @project.pmembers, :id,:name
 json.tasks @project.tasks do |task|
   json.(task, :id, :name, :descriptions, :startDate, :dueDate)
 
+	json.tmembers task.tmembers do |tmember|
+		json.(tmember, :id, :name)
+	end	  
+
   json.subtasks task.subtasks do |subtask|
     json.(subtask, :id, :name,:subtask_confirmation)
 
