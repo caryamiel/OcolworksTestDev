@@ -13,6 +13,9 @@ has_secure_password
   def to_s
     "#{name} #{phonenumber}"
   end
+
+ 
+
   has_many :projects, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -26,4 +29,7 @@ has_secure_password
   has_many :projectmemberships
   has_many :joined_projectmemberships, :class_name => "Projectmembership", :foreign_key => "pmember_id"
   has_many :joined_projects, :through => :joined_projectmemberships, :source => :project
+
+
+
 end
