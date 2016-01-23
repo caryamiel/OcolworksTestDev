@@ -10,6 +10,7 @@ class ProjtalksController < ApplicationController
   # GET /projtalks/1
   # GET /projtalks/1.json
   def show
+    @projtalk = Projtalk.find(params[:id])
   end
 
   # GET /projtalks/new
@@ -25,30 +26,21 @@ class ProjtalksController < ApplicationController
   # POST /projtalks.json
   def create
     @projtalk = Projtalk.new(projtalk_params)
-
-    respond_to do |format|
       if @projtalk.save
-        format.html { redirect_to @projtalk, notice: 'Projtalk was successfully created.' }
-        format.json { render :show, status: :created, location: @projtalk }
+ render json: {status: :success, projtalk: @projtalk}
       else
-        format.html { render :new }
-        format.json { render json: @projtalk.errors, status: :unprocessable_entity }
+        render json: {status: :failed, project: @projtalk}
       end
-    end
+  
   end
 
   # PATCH/PUT /projtalks/1
   # PATCH/PUT /projtalks/1.json
   def update
-    respond_to do |format|
       if @projtalk.update(projtalk_params)
-        format.html { redirect_to @projtalk, notice: 'Projtalk was successfully updated.' }
-        format.json { render :show, status: :ok, location: @projtalk }
+ render json: {status: :success, projtalk: @projtalk}
       else
-        format.html { render :edit }
-        format.json { render json: @projtalk.errors, status: :unprocessable_entity }
-      end
-    end
+        render json: {status: :failed, project: @projtalk}      end
   end
 
   # DELETE /projtalks/1

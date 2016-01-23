@@ -30,6 +30,6 @@ has_secure_password
   has_many :joined_projectmemberships, :class_name => "Projectmembership", :foreign_key => "pmember_id"
   has_many :joined_projects, :through => :joined_projectmemberships, :source => :project
 
-
+  has_many :projtalks, dependent: :destroy
 
 end

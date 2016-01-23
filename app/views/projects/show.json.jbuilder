@@ -2,6 +2,11 @@ json.extract! @project, :id, :name,:descriptions ,:project_confirm, :dueDate, :s
 
 json.pmembers @project.pmembers, :id,:name
 
+
+json.projtalks @project.projtalks do |projtalk|
+  json.(projtalk, :id, :user_id, :project_id, :name)
+end
+
 json.tasks @project.tasks do |task|
   json.(task, :id, :name, :descriptions, :startDate, :dueDate)
 
@@ -13,7 +18,7 @@ json.tasks @project.tasks do |task|
     json.(subtask, :id, :name,:subtask_confirmation)
 
   	json.comments subtask.comments do |comment|
-  		json.(comment, :id, :content, :user_id)  
+  		json.(comment, :id, :content)  
     end
   end
 end
