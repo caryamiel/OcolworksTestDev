@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :projtalks
   post 'getsubtask/create' 
 
   post '/send_sms' => 'twilio#send_sms'
