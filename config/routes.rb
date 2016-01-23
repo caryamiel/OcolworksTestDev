@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :talkresps
   resources :projtalks
   post 'getsubtask/create' 
 

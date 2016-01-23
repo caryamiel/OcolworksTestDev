@@ -5,6 +5,10 @@ json.pmembers @project.pmembers, :id,:name
 
 json.projtalks @project.projtalks do |projtalk|
   json.(projtalk, :id, :user_id, :project_id, :name)
+
+    json.talkresps projtalk.talkresps do |talkresp|
+      json.(talkresp, :id,:talkcontent)
+    end
 end
 
 json.tasks @project.tasks do |task|

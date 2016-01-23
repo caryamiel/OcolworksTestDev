@@ -31,5 +31,5 @@ has_secure_password
   has_many :joined_projects, :through => :joined_projectmemberships, :source => :project
 
   has_many :projtalks, dependent: :destroy
-
+  has_many :talkreps, dependent: :destroy
 end
