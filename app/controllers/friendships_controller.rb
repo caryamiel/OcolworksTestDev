@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
   # GET /friendships/1
   # GET /friendships/1.json
   def show
-    render json: @friendship
+    @friendship = Friendship.find(params[:id])
   end
 
   # GET /friendships/new
@@ -39,15 +39,11 @@ class FriendshipsController < ApplicationController
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
-    respond_to do |format|
-      if @friendship.update(friendship_params)
-        format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
-        format.json { render :show, status: :ok, location: @friendship }
+      if @friendship.update(approved: true)
+        render json: {status: :success, friendship: @friendship}
       else
-        format.html { render :edit }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
+        render json: {status: :failed, friendship: @friendship}
       end
-    end
   end
 
   # DELETE /friendships/1
@@ -68,7 +64,7 @@ class FriendshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def friendship_params
-      params.require(:friendship).permit(:user_id, :friend_id)
+      params.require(:friendship).permit(:user_id, :friend_id, :approve)
     end
     def set_user
       @user = User.find(params[:user_id])
