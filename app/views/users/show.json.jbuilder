@@ -19,7 +19,7 @@ json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :
   		json.(requested_friendship,:id,:user_avatar, :name, :email)  
   				
   		json.passive_friendships @user.passive_friendships do |passive_friendship|
-  			json.(passive_friendship,:user_id, :approved)
+  			json.(passive_friendship,:id,:user_id, :approved)
   		end
 
     end
