@@ -4,7 +4,7 @@ json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :
 
 
     json.friends @user.friends do |friend|
-      json.(friend, :id, :name)
+      json.(friend, :id, :name, :user_avatar, :email, :phonenumber)
     end
 
 
