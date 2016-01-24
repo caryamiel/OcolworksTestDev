@@ -7,9 +7,7 @@ json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :
   		json.(active_friend,:id,:user_avatar, :name, :email)  
     end
 
-    json.passive_friends @user.passive_friends do |passive_friend|
-  		json.(passive_friend,:id,:user_avatar, :name, :email)  
-    end
+
 
     json.pending_friends @user.pending_friends do |pending_friend|
   		json.(pending_friend,:id,:user_avatar, :name, :email)  
