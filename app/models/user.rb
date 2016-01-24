@@ -26,7 +26,7 @@ has_secure_password
   #has_many :inverse_friends, :through => :inverse_friendships, :source => :user, dependent: :destroy
 
   has_many :friendships
-  has_many :passive_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :passive_friendships, -> { where(friendships: {approved: false}) }, :class_name => "Friendship", :foreign_key => "friend_id"
 
   has_many :active_friends, -> { where(friendships: { approved: true}) }, :through => :friendships, :source => :friend
   has_many :passive_friends, -> { where(friendships: { approved: true}) }, :through => :passive_friendships, :source => :user
