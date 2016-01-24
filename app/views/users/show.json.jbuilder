@@ -3,12 +3,8 @@ json.extract! @user, :id, :name, :user_avatar, :email
 json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :created_at, :updated_at, :user_id, :project_confirm
 
 
-	  json.active_friends @user.active_friends do |active_friend|
-  		json.(active_friend,:id,:user_avatar, :name, :email)  
-    end
-
-    json.passive_friends @user.passive_friends do |passive_friend|
-      json.(passive_friend,:id,:user_avatar, :name, :email)  
+    json.friends @user.friends do |friend|
+      json.(friend, :id, :name)
     end
 
 
