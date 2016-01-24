@@ -13,13 +13,11 @@ json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :
     end
 
     json.requested_friendships @user.requested_friendships do |requested_friendship|
-  		json.(requested_friendship,:id,:user_avatar, :name, :email)  
-  		
-      json.friend_requests @user.friend_requests do |friend_request|
-  			json.(friend_request,:id,:user_id, :approved)
-  		end
-  				
+  		json.(requested_friendship,:id,:user_avatar, :name, :email)  		
     end
+     json.friend_requests @user.friend_requests do |friend_request|
+        json.(friend_request,:id,:user_id, :approved)
+      end
 
 
 

@@ -20,6 +20,7 @@ has_secure_password
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
   
+
   #has_many :friendships, dependent: :destroy
   #has_many :friends, :through => :friendships, dependent: :destroy
   #has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id", dependent: :destroy
@@ -46,3 +47,9 @@ has_secure_password
   has_many :projtalks, dependent: :destroy
   has_many :talkresps, dependent: :destroy
 end
+
+
+#has_many :friendships
+#has_many :friends, through: :friendships, source: :user
+#has_many :active_friends, -> { where(friendships: {approved: true, active: true}) }, :through => :friendships
+#has_many :passive_friends, -> {where(friendships: {approved: true, active: false}) }, :through => :friendships
