@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   
   resources :talkresps
   resources :projtalks
-  post 'getsubtask/create' 
-
+ 
+  get '/getFriends' => 'users#getfriends'
   post '/send_sms' => 'twilio#send_sms'
   resources :deadlines
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

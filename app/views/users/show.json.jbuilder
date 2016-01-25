@@ -9,19 +9,21 @@ json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :
 
 
     json.pending_friends @user.pending_friends do |pending_friend|
-  		json.(pending_friend,:id,:user_avatar, :name, :email)  
+  		json.(pending_friend,:id,:user_avatar, :name, :email,)  
     end
 
-    json.requested_friendships @user.requested_friendships do |requested_friendship|
-  		json.(requested_friendship,:id,:user_avatar, :name, :email)  		
-    end
-     json.friend_requests @user.friend_requests do |friend_request|
-        json.(friend_request,:id)
-      end
 
+               
+      
 
+json.friend_requests @user.friend_requests do |friend_request|
+    json.(friend_request,:id, :user_id, :friend_id, :approved, :user)
 
+end
+
+json.friend_gets @user.friend_gets do |friend_get|
+     json.(friend_get, :user)
+end
     json.joined_projects @user.joined_projects, :id, :name
-
 
 

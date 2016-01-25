@@ -8,13 +8,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+    
+  end
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find(params[:id])  
   end  
   def getFriends
-    @user = User.find(params[:id])
+    
   end
   # GET /users/new
   def new
@@ -72,4 +74,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :phonenumber, :user_avatar)
     end
-end
+
