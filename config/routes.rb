@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :jobcomments
+  resources :jobposts
   resources :profiles
   resources :talkresps
   resources :projtalks

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126090752) do
+ActiveRecord::Schema.define(version: 20160126143736) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,9 +32,26 @@ ActiveRecord::Schema.define(version: 20160126090752) do
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.boolean  "approved"
+    t.string   "sendingstats"
+  end
+
+  create_table "jobcomments", force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean  "approved"
+    t.string   "content"
+    t.integer  "jobpost_id"
+  end
+
+  create_table "jobposts", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "topic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
