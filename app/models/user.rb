@@ -37,7 +37,7 @@ has_secure_password
   has_many :requested_friendships, -> { where(friendships: { approved: false}) }, :through => :passive_friendships, :source => :user
   has_many :friend_requests, -> { where(friendships: {approved: false}) }, :class_name => "Friendship", :foreign_key => "friend_id"
   
-  has_many :friend_gets, -> { where(friendships: {approved: false}) }, :class_name => "Friendship", :foreign_key => "friend_id"
+  #has_many :friend_gets, -> { where(friendships: {approved: false && approved: true}) }, :class_name => "Friendship", :foreign_key => "friend_id"
   
   def friends
     active_friends | passive_friends

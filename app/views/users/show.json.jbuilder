@@ -21,9 +21,7 @@ json.friend_requests @user.friend_requests do |friend_request|
 
 end
 
-json.friend_gets @user.friend_gets do |friend_get|
-     json.(friend_get, :user)
-end
+
     json.joined_projects @user.joined_projects, :id, :name
 
 
