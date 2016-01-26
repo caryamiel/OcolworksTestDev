@@ -24,6 +24,12 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+  def sendAttachment
+    @text = params[:text]
+    @email = params[:email]
+       AttachmentMailer.send_attachment(@project).deliver
+    render json: @text
+  end
   # POST /projects
   # POST /projects.json
   def create

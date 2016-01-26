@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   
   resources :talkresps
   resources :projtalks
- 
+  
+  post'/sendAttachments' => 'projects#sendAttachment'
   get '/getFriends' => 'users#getfriends'
   post '/send_sms' => 'twilio#send_sms'
   resources :deadlines
