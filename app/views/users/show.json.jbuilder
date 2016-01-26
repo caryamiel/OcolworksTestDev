@@ -10,10 +10,13 @@ end
 json.pending_friends @user.pending_friends do |pending_friend|
   	json.(pending_friend,:id,:user_avatar, :name, :email,)  
 end
- 
+
+json.requested_friendships @user.requested_friendships do |requested_friendship|
+	json.(requested_friendship,:id, :name)
+end 
 
 json.friend_requests @user.friend_requests do |friend_request|
-    json.(friend_request,:id, :user_id, :friend_id, :approved, :user)
+    json.(friend_request,:id, :user_id, :friend_id, :approved)
 
 end
 
