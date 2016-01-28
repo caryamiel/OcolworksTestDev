@@ -69,6 +69,6 @@ class JobcommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jobcomment_params
-      params.require(:jobcomment).permit(:user_id, :content)
+      params.require(:jobcomment).permit(:user_id, :content,:jobpost_id)
     end
 end
