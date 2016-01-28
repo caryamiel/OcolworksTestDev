@@ -27,15 +27,11 @@ class ProjectmembershipsController < ApplicationController
   def create
     @projectmembership = Projectmembership.new(projectmembership_params)
     
-    respond_to do |format|
-      if @projectmembership.save
-        format.html { redirect_to @projectmembership, notice: 'Projectmembership was successfully created.' }
-        format.json { render :show, status: :created, location: @projectmembership }
+   if @projectmembership.save
+        render json: {status: :success, projectmembership: @projectmembership}
       else
-        format.html { render :new }
-        format.json { render json: @projectmembership.errors, status: :unprocessable_entity }
+        render json: {status: :failed, projectmembership: @projectmembership}
       end
-    end
   end
 
   # PATCH/PUT /projectmemberships/1
