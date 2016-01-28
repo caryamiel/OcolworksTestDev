@@ -1,6 +1,6 @@
 json.extract! @project, :id, :name,:descriptions ,:project_confirm, :dueDate, :startDate
 
-json.pmembers @project.pmembers, :id,:name
+json.pmembers @project.pmembers, :id,:name, :user_avatar
 
 
 json.projtalks @project.projtalks do |projtalk|
