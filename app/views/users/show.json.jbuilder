@@ -2,7 +2,7 @@ json.extract! @user, :id, :name, :user_avatar, :email ,:profile
 
 json.projects @user.projects, :id, :name, :descriptions, :startDate, :dueDate, :created_at, :updated_at, :user_id, :project_confirm
 
-json.joined_projects @user.joined_projects, :id, :name
+json.joined_projects @user.joined_projects, :id, :name, :descriptions, :startDate, :dueDate, :project_confirm
 
 
 json.friends @user.friends do |friend|
