@@ -66,6 +66,6 @@ class ProjectmembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projectmembership_params
-      params.require(:projectmembership).permit(:user_id, :project_id, :pmember_id)
+      params.require(:projectmembership).permit(:user_id, :project_id, :pmember_id,:admin_id)
     end
 end
