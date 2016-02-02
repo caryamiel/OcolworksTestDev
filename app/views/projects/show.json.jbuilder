@@ -18,7 +18,7 @@ json.tasks @project.tasks do |task|
   json.(task, :id, :name, :descriptions, :startDate, :dueDate)
 
 	json.tmembers task.tmembers do |tmember|
-		json.(tmember, :id, :name)
+		json.(tmember, :id, :name, :user_avatar)
 	end	  
 
   json.subtasks task.subtasks do |subtask|
