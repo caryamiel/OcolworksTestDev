@@ -63,11 +63,11 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:user_id, :subtask_id, :content)
+      params.require(:comment).permit(:user_id, :task_id, :content)
     end
     def set_user
       @user = User.find(params[:user_id])
     end
     def set_subtask
-      @subtask = Subtask.find(params[:subtask_id])
+      @subtask = Subtask.find(params[:task_id])
     end
