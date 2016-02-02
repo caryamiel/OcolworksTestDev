@@ -5,6 +5,5 @@ class Project < ActiveRecord::Base
 
   	has_many :projectmemberships, dependent: :destroy
 	has_many :pmembers, :through => :projectmemberships
-	has_many :admins, :through => :projectmemberships
 	has_many :projtalks, dependent: :destroy
 end
