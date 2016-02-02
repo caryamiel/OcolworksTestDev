@@ -2,7 +2,11 @@ json.extract! @project, :id, :name,:descriptions ,:project_confirm, :dueDate, :s
 
 json.pmembers @project.pmembers, :id,:name, :user_avatar
 
+
+json.projectmemberships @project.projectmemberships, :id, :pmember_id, :user_id
+
 json.admins @project.admins, :id, :name, :user_avatar
+
 json.projtalks @project.projtalks do |projtalk|
   json.(projtalk, :id, :user_id, :project_id, :name)
 
