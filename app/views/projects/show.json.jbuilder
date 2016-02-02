@@ -17,6 +17,7 @@ end
 json.tasks @project.tasks do |task|
   json.(task, :id, :name, :descriptions, :startDate, :dueDate)
 
+
 	json.tmembers task.tmembers do |tmember|
 		json.(tmember, :id, :name, :user_avatar)
 	end	  
@@ -24,8 +25,5 @@ json.tasks @project.tasks do |task|
   json.subtasks task.subtasks do |subtask|
     json.(subtask, :id, :name,:subtask_confirmation)
 
-  	json.comments subtask.comments do |comment|
-  		json.(comment, :id, :content)  
-    end
   end
 end
