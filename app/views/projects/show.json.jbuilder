@@ -1,4 +1,4 @@
-json.extract! @project, :user, :id, :name,:descriptions ,:project_confirm, :dueDate, :startDate
+json.extract! @project, :user, :id, :name,:descriptions ,:project_confirm, :dueDate, :startDate, :project_status
 
 json.pmembers @project.pmembers, :id,:name, :user_avatar
 
@@ -15,7 +15,7 @@ json.projtalks @project.projtalks do |projtalk|
 end
 
 json.tasks @project.tasks do |task|
-  json.(task, :id, :name, :descriptions, :startDate, :dueDate)
+  json.(task, :id, :name, :descriptions,:priority_number, :startDate, :dueDate)
 
 
 	json.tmembers task.tmembers do |tmember|

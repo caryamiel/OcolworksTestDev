@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202134048) do
+ActiveRecord::Schema.define(version: 20160204081610) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -62,12 +62,21 @@ ActiveRecord::Schema.define(version: 20160202134048) do
     t.integer  "user_id"
   end
 
+  create_table "projectlogs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "action"
+    t.string   "parameter"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projectmemberships", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "pmember_id"
-    t.integer  "project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -79,6 +88,7 @@ ActiveRecord::Schema.define(version: 20160202134048) do
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
     t.string   "project_confirm"
+    t.string   "project_status"
   end
 
   create_table "projtalks", force: :cascade do |t|
@@ -107,9 +117,10 @@ ActiveRecord::Schema.define(version: 20160202134048) do
 
   create_table "taskmemberships", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "taskmembership_id"
     t.integer  "task_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "tmember_id"
   end
 
@@ -118,8 +129,9 @@ ActiveRecord::Schema.define(version: 20160202134048) do
     t.text     "descriptions"
     t.date     "startDate"
     t.date     "dueDate"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "priority_number"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "project_id"
     t.integer  "user_id"
   end
