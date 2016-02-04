@@ -15,7 +15,7 @@ json.projtalks @project.projtalks do |projtalk|
 end
 
 json.tasks @project.tasks do |task|
-  json.(task, :id, :name, :descriptions,:task_priority, :startDate, :dueDate)
+  json.(task, :id, :name, :descriptions,:task_priority, :startDate, :dueDate, :task_confirmation)
 
 
 	json.tmembers task.tmembers do |tmember|
