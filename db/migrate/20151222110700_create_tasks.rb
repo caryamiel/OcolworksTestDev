@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text :descriptions
       t.date :startDate
       t.date :dueDate
-      t.integer :priority_number
+      t.string :priority_number
 
       t.timestamps null: false
     end
