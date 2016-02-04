@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:create, :update, :destroy]
+  before_action :set_project, only: [:create]
   before_action :set_user, only: [:create]
   skip_before_filter :verify_authenticity_token
   # GET /tasks
@@ -67,7 +67,7 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :descriptions, :startDate, :dueDate, :priority_number)
+      params.require(:task).permit(:name, :descriptions, :startDate, :dueDate, :task_priority)
     end
     def set_project
        @project = Project.find(params[:project_id])
