@@ -3,7 +3,7 @@ json.extract! @project, :user, :id, :name,:descriptions ,:project_confirm, :dueD
 json.pmembers @project.pmembers, :id,:name, :user_avatar
 
 
-json.projectmemberships @project.projectmemberships, :id, :pmember_id, :user_id
+json.projectmemberships @project.projectmemberships, :id, :pmember_id, :user_id, :pmember
 
 
 json.projtalks @project.projtalks do |projtalk|
