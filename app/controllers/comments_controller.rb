@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
       else
         render json: {status: :failed, comment: comment}
       end
-    end
+
   end
 
   # PATCH/PUT /comments/1
@@ -71,3 +71,4 @@ class CommentsController < ApplicationController
     def set_subtask
       @subtask = Subtask.find(params[:task_id])
     end
+end
