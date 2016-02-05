@@ -25,30 +25,21 @@ class TaskmembershipsController < ApplicationController
   # POST /taskmemberships.json
   def create
     @taskmembership = Taskmembership.new(taskmembership_params)
-
-    respond_to do |format|
       if @taskmembership.save
-        format.html { redirect_to @taskmembership, notice: 'Taskmembership was successfully created.' }
-        format.json { render :show, status: :created, location: @taskmembership }
+        render json:{status: :success, taskmembership: @taskmembership}
       else
-        format.html { render :new }
-        format.json { render json: @taskmembership.errors, status: :unprocessable_entity }
+        render json:{status: :failed, taskmembership: @taskmembership}
       end
-    end
   end
 
   # PATCH/PUT /taskmemberships/1
   # PATCH/PUT /taskmemberships/1.json
   def update
-    respond_to do |format|
-      if @taskmembership.update(taskmembership_params)
-        format.html { redirect_to @taskmembership, notice: 'Taskmembership was successfully updated.' }
-        format.json { render :show, status: :ok, location: @taskmembership }
+      if @taskmembership.save
+        render json:{status: :success, taskmembership: @taskmembership}
       else
-        format.html { render :edit }
-        format.json { render json: @taskmembership.errors, status: :unprocessable_entity }
+        render json:{status: :failed, taskmembership: @taskmembership}
       end
-    end
   end
 
   # DELETE /taskmemberships/1
@@ -69,6 +60,6 @@ class TaskmembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def taskmembership_params
-      params.require(:taskmembership).permit(:user_id, :taskmembership_id, :task_id)
+      params.require(:taskmembership).permit(:user_id, :tmember_id, :task_id)
     end
 end
