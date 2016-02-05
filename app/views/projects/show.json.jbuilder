@@ -1,4 +1,4 @@
-json.extract! @project, :user, :id, :name,:descriptions ,:project_confirm, :dueDate, :startDate, :project_status,:project_color
+json.extract! @project, :user, :id, :name,:descriptions ,:project_confirm, :dueDate, :startDate, :project_status,:project_color,:admin
 
 json.pmembers @project.pmembers, :id,:name, :user_avatar
 
